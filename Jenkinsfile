@@ -45,7 +45,7 @@ pipeline {
                 sh 'docker run -itd -p  8081:8080 rahul9711/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
-        stage('Archving') { 
+        stage('Archving..') { 
             steps {
                  archiveArtifacts '**/target/*.jar'
             }
