@@ -6,7 +6,7 @@ pipeline {
     
     } */
     
-    
+     stages {
     stage('prepare environment'){
         echo 'Initialize the variables'
         def mavenHome = tool name: 'myMaven' , type: 'maven'
@@ -15,6 +15,7 @@ pipeline {
        // dockerCMD = "${docker}/bin/docker"
        // tagName = "1.0"
     }
+}
     stages {
         stage('Compile and Clean') { 
             steps {
