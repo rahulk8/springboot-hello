@@ -37,6 +37,14 @@ pipeline {
                 sh 'docker push rahul9711/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
+
+        stage('Delete all previous containers'){
+            steps {
+                   sh 'docker rm -fv $(docker ps -aq)'
+               // sh 'docker run -itd -p  8084:8080 rahul9711/docker_jenkins_springboot:${BUILD_NUMBER}'
+            }
+        }
+        
         stage('Docker deploy'){
             steps {
                
