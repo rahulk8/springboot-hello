@@ -1,9 +1,6 @@
 pipeline {
     agent any 
-   /* tools {
-        maven "3.8.5"
-    
-    } */
+   
     stages {
         stage('Compile and Clean') { 
             steps {
@@ -13,7 +10,7 @@ pipeline {
             }
         }
        
-        stage('deploy') { 
+        stage('Packaging App') { 
             
             steps {
                 sh "mvn package"
@@ -22,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
           
             steps {
-                echo "Hello Java Express"
+                echo "Hello Building docker image of the app"
                 sh 'ls'
                 sh 'docker build -t  rahul9711/docker_jenkins_springboot:${BUILD_NUMBER} .'
             }
