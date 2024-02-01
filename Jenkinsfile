@@ -6,17 +6,13 @@ pipeline {
     
     } */
     
-     stages {
-    stage('prepare environment'){
-        echo 'Initialize the variables'
-        def mavenHome = tool name: 'myMaven' , type: 'maven'
-       // mavenCMD = "${mavenHome}/bin/mvn"
-        //docker = tool name: 'myDocker' , type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-       // dockerCMD = "${docker}/bin/docker"
-       // tagName = "1.0"
-    }
-}
     stages {
+       stage('Prepare environment') { 
+            steps {
+                echo 'Initialize the variables'
+                def mavenHome = tool name: 'myMaven' , type: 'maven'
+            }
+        }
         stage('Compile and Clean') { 
             steps {
                 // Run Maven on a Unix agent.
