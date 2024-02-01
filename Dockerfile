@@ -1,7 +1,7 @@
 FROM openjdk:8
 
-ADD target/javaexpress-springboot-docker.jar javaexpress-springboot-docker.jar
+ADD target/springboot-docker-app.jar springboot-docker-app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","javaexpress-springboot-docker.jar"]
+ENTRYPOINT ["java","-jar","springboot-docker-app.jar"]
