@@ -7,18 +7,18 @@
     } */
     node {
     def mavenHome
-    def mavenCMD
-    def docker
-    def dockerCMD
-    def tagName
+    //def mavenCMD
+   // def docker
+   // def dockerCMD
+   // def tagName
     
     stage('prepare environment'){
         echo 'Initialize the variables'
         mavenHome = tool name: 'myMaven' , type: 'maven'
-        mavenCMD = "${mavenHome}/bin/mvn"
-        docker = tool name: 'myDocker' , type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-        dockerCMD = "${docker}/bin/docker"
-        tagName = "1.0"
+       // mavenCMD = "${mavenHome}/bin/mvn"
+        //docker = tool name: 'myDocker' , type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+       // dockerCMD = "${docker}/bin/docker"
+       // tagName = "1.0"
     }
     stages {
         stage('Compile and Clean') { 
