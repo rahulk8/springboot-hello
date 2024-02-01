@@ -1,19 +1,10 @@
 pipeline {
-   agent any 
-   def mavenHome = tool name: 'myMaven' , type: 'maven'
-
-    /* tools {
-        //maven "3.9.6"
-        mavenHome = tool name: 'myMaven' , type: 'maven'
+    agent any 
+    tools {
+        maven "3.8.5"
     
-    } */
-    
+    }
     stages {
-       stage('Prepare environment') { 
-            steps {
-                echo 'Initialize the variables'
-            }
-        }
         stage('Compile and Clean') { 
             steps {
                 // Run Maven on a Unix agent.
@@ -21,6 +12,7 @@ pipeline {
                 sh "mvn clean compile"
             }
         }
+       
         stage('deploy') { 
             
             steps {
